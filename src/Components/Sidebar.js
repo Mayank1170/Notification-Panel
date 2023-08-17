@@ -30,7 +30,7 @@ const Sidebar = () => {
         <ul className='mb-10 text-white flex flex-col gap-y-16 text-3xl items-center'>
           <li><MdHelp /></li>
           <li><AiTwotoneSetting /></li>
-          <li><IoPersonCircle /></li>
+          <li><Link to='/Profile'><IoPersonCircle /></Link></li>
         </ul>
       </div>
     </>

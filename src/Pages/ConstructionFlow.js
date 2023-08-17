@@ -2,20 +2,17 @@ import React from 'react'
 import { BsBuildings } from 'react-icons/bs'
 import { BiDotsHorizontalRounded } from 'react-icons/bi'
 import { BsArrowUp } from 'react-icons/bs'
-import { BsTruck } from 'react-icons/bs'
 import { AiOutlineHome } from 'react-icons/ai'
 import { HiOutlineDocumentText } from 'react-icons/hi'
 import { FaArrowDownWideShort } from 'react-icons/fa6'
 import Value from './Value'
-import Navbar from '../Components/Navbar'
-import Sidebar from '../Components/Sidebar'
+
 
 const ConstructionFlow = () => {
     return (
         <div>
             <div className="bg-zinc-950">
                 <div className="ml-40">
-                    <Navbar />
                     <div className="flex items-center justify-center ">
                         <div className='h-[100%] w-[100%]'>
                             <div className='flex items-center ml-[4%] w-[100%]'>
@@ -214,7 +211,6 @@ const ConstructionFlow = () => {
                         </div>
                     </div>
                 </div>
-                <Sidebar />
             </div>
         </div>
     )

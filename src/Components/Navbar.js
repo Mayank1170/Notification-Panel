@@ -1,9 +1,7 @@
 import React, { ReactElement } from 'react'
 import { BiSearch } from 'react-icons/bi'
 import { BiExport } from 'react-icons/bi'
-
 import { BiFilterAlt } from 'react-icons/bi'
-
 import { AiOutlineCalendar } from 'react-icons/ai'
 
 
@@ -11,7 +9,7 @@ import { AiOutlineCalendar } from 'react-icons/ai'
 const Navbar = () => {
     return (
         <>
-            <nav className='w-[100%] md:mr-8  p-5 bg-black md:flex md:items-center md:justify-between h-[300px] md:h-[100px]'>
+            <nav className='w-[100%] md:mr-8 p-5 bg-black md:flex md:items-center md:justify-between h-[300px] md:h-[100px]'>
                 <div>
                     
                     <span className='text-3xl font-bold text-white bg-black ml-40 w-full z-[1]'>Dashboard</span>

@@ -1,6 +1,5 @@
 import React from 'react'
-import Navbar from '../Components/Navbar'
-import Sidebar from '../Components/Sidebar'
+
 import { BiError } from 'react-icons/bi'
 import { HiOutlineServer } from 'react-icons/hi'
 import { IoNewspaperOutline } from 'react-icons/io5'
@@ -14,9 +13,6 @@ const Dashboard = () => {
   return (
     <div>
       <div className="overflow-x-hidden ml-12">
-        <Navbar />
-        <div className="mt-3 h-0.5 self-stretch bg-neutral-50 opacity-10"></div>
-        <Sidebar />
         {/* <div className="top-0 absolute ml-20 md:ml-40 h-[962px]  w-0.5 self-stretch bg-neutral-50 opacity-10"></div> */}
         <div className='grid lg:grid-cols-3 md:grid-cols-2 mr-4 mt-0 md:flex-row justify-center items-center md:space-x-16 ml-[310px]'>
           <div className='bg-zinc-950 md:h-[250px] w-[50%] sm:w-[90%] text-white mb-5'>
