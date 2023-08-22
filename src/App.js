@@ -4,6 +4,7 @@ import Navbar from './Components/Navbar'
 import Sidebar from './Components/Sidebar';
 import ConstructionFlow from './Pages/ConstructionFlow';
 import Profile from './Pages/Profile';
+import Table from './Pages/Table';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path='/' element={<LoginPage/>}/>
         <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/constructionflow' element={<ConstructionFlow/>}/>
+        <Route path='/Table' element= {<Table/>}/>
         <Route path='/Profile' element={<Profile/>}/>
       </Routes>
     </div>
