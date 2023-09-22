@@ -18,9 +18,9 @@ const ConstructionFlow = () => {
                             <div className='flex items-center ml-[4%] w-[100%]'>
                                 <h1 className="text-white text-xl mt-6 mb-3">My Company Construction Flow</h1>
                             </div>
-                            <div className='h-full flex 2xl:flex-row flex-col w-[100%]'>
+                            <div className='h-full flex 2xl:flex-row flex-col w-[98%]'>
                                 <div className='flex md:flex-row flex-col w-[100%]'>
-                                    <div className='w-[100%] ml-[4%] mb-[2%] bg-gray-950 flex flex-col space-y-16 items-center border-r-[0.5px] border-gray-700 '>
+                                    <div className='w-[100%] ml-[4%] mb-[5%] bg-gray-950 flex flex-col space-y-16 items-center border-r-[0.5px] border-gray-700 '>
                                         <div className='flex flex-row justify-between h-12 w-[100%] bg-black border-lime-600 border-l-8'>
                                             <div className="ml-2 text-white flex flex-row space-x-2 items-center">
                                                 <BsBuildings />

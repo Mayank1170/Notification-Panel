@@ -5,12 +5,15 @@ import { BsPencilFill } from "react-icons/bs";
 import { FaTrashAlt } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import { PiClipboardTextLight } from "react-icons/pi";
-import { BsFillPencilFill } from "react-icons/bs"
+import { BsFillPencilFill } from "react-icons/bs";
+import { AiOutlineExclamationCircle } from "react-icons/ai";
 import TableValue from "./TableValue";
 
 const Table = () => {
   const [selectedRows, setSelectedRows] = useState(10);
-  const [openDropdownId, setOpenDropdownId] = useState(null); // State to track open dropdown
+  const [openDropdownId, setOpenDropdownId] = useState(null);
+  const [isEditPopupVisible, setEditPopupVisible] = useState(false);
+  const [isDetailPopupVisible, setDetailPopupVisible] = useState(false);
   const handleRowChange = (event) => {
     setSelectedRows(parseInt(event.target.value));
   };
@@ -21,13 +24,19 @@ const Table = () => {
       setOpenDropdownId(itemId);
     }
   };
+  const toggleEditPopup = () => {
+    setEditPopupVisible(!isEditPopupVisible);
+  };
+  const toggleDetailPopup = () => {
+    setDetailPopupVisible(!isDetailPopupVisible);
+  }
 
   return (
     <div className="ml-40 mr-20 space-x-4 mt-8">
       <div className="flex items-center justify-center text-[40px]  text-[#45a582]">
         Et Harum Quidem Rerum Facilisest Expedita Distinctio
       </div>
-      <div>
+      <div className="relative">
         <div className="flex flex-row mt-12 justify-between">
           <div className="flex flex-row space-x-4">
             <input
@@ -136,17 +145,23 @@ const Table = () => {
                     </div>
                   </div>
                   <div className="divide-y-[0.5px] divide-slate-800">
-                  <div className="flex flex-row justify-between  hover:bg-gray-900 items-center">
+                    <div className="flex flex-row justify-between  hover:bg-gray-900 items-center" onClick={toggleDetailPopup}>
                       <div className="px-4 py-2 text-lg text-white/40 cursor-pointer">
                         Details
                       </div>
-                      <div className="text-red-800 text-[20px] px-5 py-2"><PiClipboardTextLight/></div>
+                      <div className="text-red-800 text-[20px] px-5 py-2">
+                        <PiClipboardTextLight />
+                      </div>
                     </div>
-                    <div className="flex flex-row justify-between  hover:bg-gray-900 items-center">
-                    <div className="px-4 py-2 text-lg text-white/40 cursor-pointer">
-                      Edit
-                    </div>
-                    <div className="text-blue-800 text-[20px] px-5 py-2"><BsFillPencilFill/></div>
+                    <div className="flex flex-row justify-between  hover:bg-gray-900 items-center" onClick={toggleEditPopup} >
+                      <div
+                        className="px-4 py-2 text-lg text-white/40 cursor-pointer"
+                      >
+                        Edit
+                      </div>
+                      <div className="text-blue-800 text-[20px] px-5 py-2">
+                        <BsFillPencilFill />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -155,7 +170,167 @@ const Table = () => {
           </div>
         ))}
       </div>
-      <div></div>
+      {isEditPopupVisible && (
+        <div className="absolute top-[118px] w-[25%] h-[100%] bg-[#05070B] right-0 z-50 border-l-[1px] border-gray-700">
+          <div className="flex flex-row w-full items-center justify-between bg-[#0B0F13] p-4 ">
+            <p className="text-3xl font-semibold text-[#749288] ">Edit View</p>
+            <div
+              onClick={toggleEditPopup}
+              className="text-[#4EBC94] p-3 items-center bg-black rounded-full"
+            >
+              <div className="text-2xl">
+                <IoMdClose />
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col space-y-8">
+            <div className="w-full flex flex-row items-center justify-between">
+              <input
+                type="text"
+                placeholder="Name"
+                className="text-white bg-black ml-16  w-[10px] border border-[#45a582] px-3 py-[0.25rem] md:w-[350px] z-[1]"
+              />
+              <div className="text-[#4EBC94] text-2xl pr-8">
+                <AiOutlineExclamationCircle />
+              </div>
+            </div>
+            <div className="w-full flex flex-row items-center justify-between">
+              <input
+                type="text"
+                placeholder="Rate"
+                className="text-white bg-black ml-16  w-[10px] border border-[#45a582] px-3 py-[0.25rem] md:w-[350px] z-[1]"
+              />
+              <div className="text-[#4EBC94] text-2xl pr-8">
+                <AiOutlineExclamationCircle />
+              </div>
+            </div>
+            <div className="w-full flex flex-row items-center justify-between">
+
+            <input
+              type="text"
+              placeholder="Balance"
+              className="text-white bg-black ml-16  w-[10px] border border-[#45a582] px-3 py-[0.25rem] md:w-[350px] z-[1]"
+            />
+            <div className="text-[#4EBC94] text-2xl pr-8">
+            <AiOutlineExclamationCircle />
+            </div>
+            </div>
+            <div className="w-full flex flex-row items-center justify-between">
+            <input
+              type="text"
+              placeholder="Deposite"
+              className="text-white bg-black ml-16  w-[10px] border border-[#45a582] px-3 py-[0.25rem] md:w-[350px] z-[1]"
+            />
+             <div className="text-[#4EBC94] text-2xl pr-8">
+            <AiOutlineExclamationCircle />
+            </div>
+            </div>
+            <div className="w-full flex flex-row items-center justify-between">
+            <input
+              type="text"
+              placeholder="Status"
+              className="text-white bg-black ml-16  w-[10px] border border-[#45a582] px-3 py-[0.25rem] md:w-[350px] z-[1]"
+            />
+             <div className="text-[#4EBC94] text-2xl pr-8">
+            <AiOutlineExclamationCircle />
+            </div>
+            </div>
+            <div className="w-full flex flex-row items-center justify-between">
+            <input
+              type="text"
+              placeholder="Description"
+              className="text-white bg-black ml-16  w-[10px] h-[200px] border border-[#45a582] px-3 py-[0.25rem] md:w-[350px] z-[1]"
+            />
+             <div className="text-[#4EBC94] text-2xl pr-8">
+            <AiOutlineExclamationCircle />
+            </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+{isDetailPopupVisible && (
+        <div className="absolute top-[118px] w-[25%] h-[100%] bg-[#05070B] right-0 z-50 border-l-[1px] border-gray-700">
+          <div className="flex flex-row w-full items-center justify-between bg-[#0B0F13] p-4 ">
+            <p className="text-3xl font-semibold text-[#749288] ">Detail View</p>
+            <div
+              onClick={toggleDetailPopup}
+              className="text-[#4EBC94] p-3 items-center bg-black rounded-full"
+            >
+              <div className="text-2xl">
+                <IoMdClose />
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col space-y-8">
+            <div className="w-full flex flex-row items-center justify-between">
+              <input
+                type="text"
+                placeholder="John Doe"
+                className="text-white bg-black ml-16  w-[10px] border border-[#45a582] px-3 py-[0.25rem] md:w-[350px] z-[1]"
+              />
+              <div className="text-[#4EBC94] text-2xl pr-8">
+                <AiOutlineExclamationCircle />
+              </div>
+            </div>
+            <div className="w-full flex flex-row items-center justify-between">
+              <input
+                type="text"
+                placeholder="$ 300"
+                className="text-white bg-black ml-16  w-[10px] border border-[#45a582] px-3 py-[0.25rem] md:w-[350px] z-[1]"
+              />
+              <div className="text-[#4EBC94] text-2xl pr-8">
+                <AiOutlineExclamationCircle />
+              </div>
+            </div>
+            <div className="w-full flex flex-row items-center justify-between">
+
+            <input
+              type="text"
+              placeholder="$ 200"
+              className="text-white bg-black ml-16  w-[10px] border border-[#45a582] px-3 py-[0.25rem] md:w-[350px] z-[1]"
+            />
+            <div className="text-[#4EBC94] text-2xl pr-8">
+            <AiOutlineExclamationCircle />
+            </div>
+            </div>
+            <div className="w-full flex flex-row items-center justify-between">
+            <input
+              type="text"
+              placeholder="$ 500"
+              className="text-white bg-black ml-16  w-[10px] border border-[#45a582] px-3 py-[0.25rem] md:w-[350px] z-[1]"
+            />
+             <div className="text-[#4EBC94] text-2xl pr-8">
+            <AiOutlineExclamationCircle />
+            </div>
+            </div>
+            <div className="w-full flex flex-row items-center justify-between">
+            <input
+              type="text"
+              placeholder="Active"
+              className="text-white bg-black ml-16  w-[10px] border border-[#45a582] px-3 py-[0.25rem] md:w-[350px] z-[1]"
+            />
+             <div className="text-[#4EBC94] text-2xl pr-8">
+            <AiOutlineExclamationCircle />
+            </div>
+            </div>
+            <div className="w-full flex flex-row items-center justify-between">
+            <input
+              type="text"
+              placeholder="Circumstances occur in which toil and pain can
+              procure him some great pleasure circumstances occur in
+              which toil and pain can procure him some
+              great pleasure leasure circumstances occur in
+              which toil and pahjj."
+              className="text-white bg-black ml-16  w-[10px] h-[200px] border border-[#45a582] px-3 py-[0.25rem] md:w-[350px] z-[1]"
+            />
+             <div className="text-[#4EBC94] text-2xl pr-8">
+            <AiOutlineExclamationCircle />
+            </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
