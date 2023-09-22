@@ -247,7 +247,8 @@ const Table = () => {
             </div>
           </div>
         </div>
-      )}
+      )} 
+      
 
 {isDetailPopupVisible && (
         <div className="absolute top-[118px] w-[25%] h-[100%] bg-[#05070B] right-0 z-50 border-l-[1px] border-gray-700">
